@@ -1,22 +1,18 @@
 package song.type.night.dao.imp;
 
-import java.util.List;
-import java.util.Map;
-
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import song.type.night.VO.Member;
 import song.type.night.dao.TypeNightDAO;
+import song.type.night.vo.Member;
 
 @Repository
 public class TypeNightDAOImp implements TypeNightDAO {
 	@Autowired
-	private JdbcTemplate db;
+	private SqlSession db;
 	
-	private String query="";
+	private static final String namespace = "song.type.night.mapper.Mapper";
 	
 	@Override
 	public boolean registerMember(Member m) {
@@ -25,16 +21,12 @@ public class TypeNightDAOImp implements TypeNightDAO {
 	}
 
 	@Override
-	public boolean isMember(Member m) {
+	public int isMember(Member m) {
 		// TODO Auto-generated method stub
-		query = "select * from member where member.id=\""+m.getId()+"\" and member.pwd=\""+m.getPwd()+"\"";
-		List<Map<String, Object>> cur = db.queryForList(query);
 		
-		System.out.println(cur);
+		int result = (db.selectOne(namespace + ".isMember", m) == null) ? -1 : db.selectOne(namespace + ".isMember", m);
 		
-		if(cur.size() == 0) return false;
-		
-		return true;
+		return result;
 	}
 
 }

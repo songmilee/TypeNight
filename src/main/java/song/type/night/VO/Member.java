@@ -1,12 +1,19 @@
-package song.type.night.VO;
+package song.type.night.vo;
 
 public class Member {
+	String uid;
 	String id;
 	String pwd;
 	String name;
 	int gender;
 	String birth;
 	
+	public String getUid() {
+		return uid;
+	}
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
 	public String getId() {
 		return id;
 	}

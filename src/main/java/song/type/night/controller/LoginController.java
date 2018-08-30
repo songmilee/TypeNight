@@ -1,21 +1,16 @@
 package song.type.night.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import song.type.night.VO.Member;
 import song.type.night.dao.imp.TypeNightDAOImp;
+import song.type.night.vo.Member;
 
 @Controller
 public class LoginController {
@@ -39,17 +34,17 @@ public class LoginController {
 		m.setId(id);
 		m.setPwd(pwd);
 		
-		boolean result = typeDao.isMember(m);
+		int result = typeDao.isMember(m);
+		System.out.println(result);
 		
-		if(result) {
+		if(result != -1) {
 			//set Cookie
-			Cookie c = new Cookie("info", id);
+			Cookie c = new Cookie("uid", String.valueOf(result));
 			c.setMaxAge(60 * 60 * 3600);
 			
 			rep.addCookie(c);
-			
-			
-			return "shop";
+
+			return "redirect:shop";
 		}
 		
 		return "login";

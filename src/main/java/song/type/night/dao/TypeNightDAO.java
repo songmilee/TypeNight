@@ -1,9 +1,11 @@
 package song.type.night.dao;
 
-import song.type.night.VO.Member;
+import org.apache.ibatis.annotations.Mapper;
 
+import song.type.night.vo.Member;
+
+@Mapper
 public interface TypeNightDAO {
-	
 	public boolean registerMember(Member m);
-	public boolean isMember(Member m);
+	public int isMember(Member m);
 }

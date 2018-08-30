@@ -13,7 +13,7 @@
 			
 			<div class="row">
 				<label for="pwd">pwd</label>
-				<input type="text" name="pwd" id="pwd">
+				<input type="password" name="pwd" id="pwd">
 			</div>
 			
 			<div class="row">
