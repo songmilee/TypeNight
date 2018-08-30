@@ -1,0 +1,16 @@
+html{
+	height : 100%;
+	width : 100%;
+}
+
+body{
+	height : 100vh;
+	width : 100vw;
+}
+
+.content{
+	padding : 10%;
+}
+.bottom-space{
+	padding-bottom : 15px;
+}
