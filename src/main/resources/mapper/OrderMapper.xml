@@ -11,10 +11,11 @@
 <select id="selectOrder" resultType="hashmap">
 	select i.name as name, 
 	i.price as price,
-	o.amount as amount, 
+	sum(o.amount) as amount, 
 	o.date as date,
 	i.img as img
 	from orders o, item i where o.uid=#{uid} and o.iid=i.iid
+	group by date, i.iid
 	order by date
 </select>
 
