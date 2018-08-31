@@ -2,23 +2,7 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	
-<mapper namespace="song.type.night.mapper.Mapper">
-
-	<select id="selectOneMember" parameterType="song.type.night.vo.Member" resultType="song.type.night.vo.Member">
-		select * from member where id=#{id} and pwd=#{pwd}
-	</select>
-	<insert id="insertMember" parameterType="song.type.night.vo.Member">
-		insert into member values(null, #{id}, #{pwd}, #{name}, #{gender}, #{birth})
-	</insert>
-	<select id="selectItem" resultType="hashmap">
-		select * from item
-	</select>
-	
-	<select id="selectOneItem" parameterType="Integer" resultType="song.type.night.vo.Item">
-		select * from item where iid=#{iid}
-	</select>
-	
+<mapper namespace="song.type.night.mapper.CartMapper">
 	<select id="countCartItem" resultType="Integer">
 		select count(*) from cart where iid=#{iid} and uid=#{uid}
 	</select>
@@ -52,4 +36,5 @@
 		delete from cart
 		where uid=#{uid} and iid=#{iid}
 	</delete>
+
 </mapper>

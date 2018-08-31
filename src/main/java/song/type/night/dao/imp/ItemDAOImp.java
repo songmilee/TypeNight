@@ -18,12 +18,12 @@ public class ItemDAOImp implements ItemDAO {
 	@Override
 	public List<Item> selectItem() {
 		// TODO Auto-generated method stub
-		return db.selectList(Variable.namespace + ".selectItem");
+		return db.selectList(Variable.ITEM + ".selectItem");
 	}
 
 	@Override
 	public Item selectOneItem(int iid) {
 		// TODO Auto-generated method stub
-		return db.selectOne(Variable.namespace + ".selectOneItem", iid);
+		return db.selectOne(Variable.ITEM + ".selectOneItem", iid);
 	}
 }

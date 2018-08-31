@@ -19,43 +19,43 @@ public class CartDAOImp implements CartDAO {
 	@Override
 	public int countCartItem(Cart c) {
 		// TODO Auto-generated method stub
-		return db.selectOne(Variable.namespace + ".countCartItem", c);
+		return db.selectOne(Variable.CART + ".countCartItem", c);
 	}
 
 	@Override
 	public void insertCart(Cart c) {
 		// TODO Auto-generated method stub
-		db.insert(Variable.namespace + ".insertCart", c);
+		db.insert(Variable.CART + ".insertCart", c);
 	}
 
 	@Override
 	public void updateCart(Cart c) {
 		// TODO Auto-generated method stub
-		db.update(Variable.namespace + ".updateCart", c);
+		db.update(Variable.CART + ".updateCart", c);
 	}
 
 	@Override
 	public List<Cart> selectCart(int uid) {
 		// TODO Auto-generated method stub
-		return db.selectList(Variable.namespace + ".selectCart", uid);
+		return db.selectList(Variable.CART + ".selectCart", uid);
 	}
 
 	@Override
 	public float sumPrice(int uid) {
 		// TODO Auto-generated method stub
-		return db.selectOne(Variable.namespace + ".sumCartPrice",	uid);
+		return db.selectOne(Variable.CART + ".sumCartPrice",	uid);
 	}
 
 	@Override
 	public List<Map<String, Object>> selectCartItemList(int uid) {
 		// TODO Auto-generated method stub
-		return db.selectList(Variable.namespace + ".selectCartItem", uid);
+		return db.selectList(Variable.CART + ".selectCartItem", uid);
 	}
 
 	@Override
 	public void deleteCart(Cart c) {
 		// TODO Auto-generated method stub
-		db.delete(Variable.namespace+".deleteCartItem", c);		
+		db.delete(Variable.CART+".deleteCartItem", c);		
 	}
 
 }

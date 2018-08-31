@@ -21,13 +21,13 @@ public class MemberDAOImp implements MemberDAO {
 	@Override
 	public int insertMember(Member m) {
 		// TODO Auto-generated method stub		
-		return db.insert(Variable.namespace + ".insertMember", m);
+		return db.insert(Variable.MEMBER + ".insertMember", m);
 	}
 
 	@Override
 	public Member selectOneMember(Member m) {
 		// TODO Auto-generated method stub
-		return db.selectOne(Variable.namespace + ".selectOneMember", m);
+		return db.selectOne(Variable.MEMBER + ".selectOneMember", m);
 	}
 
 }

@@ -7,7 +7,9 @@
         <package name="song.type.night"/>
     </typeAliases>
     <mappers>
-        <mapper resource="mapper/Mapper.xml"/>
+        <mapper resource="mapper/MemberMapper.xml"/>
+        <mapper resource="mapper/ItemMapper.xml"/>
+        <mapper resource="mapper/CartMapper.xml"/>
         <mapper resource="mapper/OrderMapper.xml"/>
     </mappers>
 </configuration>

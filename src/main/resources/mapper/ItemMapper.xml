@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="song.type.night.mapper.ItemMapper">
+	<select id="selectItem" resultType="hashmap">
+		select * from item
+	</select>
+	
+	<select id="selectOneItem" parameterType="Integer" resultType="song.type.night.vo.Item">
+		select * from item where iid=#{iid}
+	</select>
+
+</mapper>
