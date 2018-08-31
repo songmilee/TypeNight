@@ -5,7 +5,51 @@
 	
 <mapper namespace="song.type.night.mapper.Mapper">
 
-	<select id="isMember" parameterType="song.type.night.vo.Member" resultType="Integer">
-		select uid from member where id=#{id} and pwd=#{pwd}
+	<select id="selectOneMember" parameterType="song.type.night.vo.Member" resultType="song.type.night.vo.Member">
+		select * from member where id=#{id} and pwd=#{pwd}
 	</select>
+	<insert id="insertMember" parameterType="song.type.night.vo.Member">
+		insert into member values(null, #{id}, #{pwd}, #{name}, #{gender}, #{birth})
+	</insert>
+	<select id="selectItem" resultType="hashmap">
+		select * from item
+	</select>
+	
+	<select id="selectOneItem" parameterType="Integer" resultType="song.type.night.vo.Item">
+		select * from item where iid=#{iid}
+	</select>
+	
+	<select id="countCartItem" resultType="Integer">
+		select count(*) from cart where iid=#{iid} and uid=#{uid}
+	</select>
+	
+	<insert id="insertCart" parameterType="song.type.night.vo.Cart">
+		insert into cart values(null, #{uid}, #{iid}, #{amount})
+	</insert>
+	
+	<update id="updateCart" parameterType="song.type.night.vo.Cart">
+		update cart set amount = #{amount} + amount where iid=#{iid} and uid=#{uid}
+	</update>
+	
+	<select id="selectCart" resultType="hashmap">
+		select * from cart where uid=#{uid}
+	</select>
+	
+	<select id="sumCartPrice" resultType="Float">
+		select IFNULL(sum(c.amount*i.price), 0) from cart c, item i where uid=#{uid} and c.iid=i.iid
+	</select>
+	
+	<select id="selectCartItem" resultType="hashmap">
+		select i.iid as iid, 
+		i.name as name, 
+		i.price as price, 
+		i.img as img, 
+		c.amount as amount
+		from cart c, item i where c.uid=#{uid} and c.iid=i.iid
+	</select>
+	
+	<delete id="deleteCartItem">
+		delete from cart
+		where uid=#{uid} and iid=#{iid}
+	</delete>
 </mapper>

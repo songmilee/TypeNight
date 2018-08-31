@@ -1,17 +1,17 @@
 package song.type.night.vo;
 
 public class Member {
-	String uid;
+	int uid;
 	String id;
 	String pwd;
 	String name;
 	int gender;
 	String birth;
 	
-	public String getUid() {
+	public int getUid() {
 		return uid;
 	}
-	public void setUid(String uid) {
+	public void setUid(int uid) {
 		this.uid = uid;
 	}
 	public String getId() {
