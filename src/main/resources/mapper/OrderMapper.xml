@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="song.type.night.mapper.OrderMapper">
+
+<insert id="insertOrder" parameterType="song.type.night.vo.Order">
+	insert into orders values(null, #{iid}, #{date}, #{amount}, #{uid})
+</insert>
+
+<select id="selectOrder" resultType="hashmap">
+	select i.name as name, 
+	i.price as price,
+	o.amount as amount, 
+	o.date as date,
+	i.img as img
+	from orders o, item i where o.uid=#{uid} and o.iid=i.iid
+	order by date
+</select>
+
+</mapper>

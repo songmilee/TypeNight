@@ -49,15 +49,18 @@
 								<td>${i.count }</td>
 								<td><img src="${path}/img/${row.img}" width="300px" height="300px"></td>
 								<td>${row.name }</td>
-								<td>${row.price }</td>
+								<td>$${row.price }</td>
 								<td>${row.amount }</td>
-								<td><fmt:formatNumber value="${row.price * row.amount }" pattern=".00" /></td>
+								<td>$<fmt:formatNumber value="${row.price * row.amount }" pattern=".00" /></td>
 								<td><a href="${path}/cart/delete.do?iid=${row.iid}">remove</a></td>
 							</tr>
+							
+							<input type="hidden" name="iid" id="iid" value="${row.iid}" />
+							<input type="hidden" name="amount" id="amount" value="${row.amount}"/>
 						</c:forEach>
 						<tr>
 							<td colspan="5" align="right">
-								Total : ${sum }
+								Total : $${sum }
 							</td>
 						</tr>
 					</table>

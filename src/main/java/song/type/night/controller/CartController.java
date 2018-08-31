@@ -50,7 +50,6 @@ public class CartController {
 		mv.addObject("sum", sum);
 		mv.addObject("cartitem", cartItem);
 		
-		System.out.println(cartItem);
 		return mv;
 	}
 	

@@ -9,4 +9,5 @@ public class Variable {
 	public static final int LOGOUT = 3000;
 	
 	public static final String namespace = "song.type.night.mapper.Mapper";
+	public static final String ORDER = "song.type.night.mapper.OrderMapper";
 }

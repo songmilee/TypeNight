@@ -3,7 +3,7 @@
 <%@ include file="../partial/header.html" %>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="#">ixShop</a>
+	  <a class="navbar-brand" href="${path}/shop/list.do">ixShop</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -17,10 +17,10 @@
 	        <a class="nav-link" href="${path}/cart/list.do">Cart</a>
 	      </li>
 	      <li class="nav-item">
-	      	<a class="nav-link" href="#">Orders</a>
+	      	<a class="nav-link" href="${path}/order/list.do">Orders</a>
 	      </li>
 	      <li class="nav-item">
-	      	<a class="nav-link" href="#">My Page</a>
+	      	<a class="nav-link" href="${path}/logout.do">Log out</a>
 	      </li>
 	    </ul>
 	  </div>
