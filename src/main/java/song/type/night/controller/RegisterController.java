@@ -43,7 +43,7 @@ public class RegisterController {
 		boolean result = service.registerMember(nb);
 		
 		if(result) {
-			mv.setViewName("redirect:/main.do");
+			mv.setViewName("redirect:/");
 		} else {
 			mv.setViewName("/account/register");
 			mv.addObject("msg", String.valueOf(Variable.RESULT_FAIL));

@@ -8,8 +8,7 @@ app.config(function($locationProvider, $routeProvider){
 });
 
 app.controller('orderController', function($scope, $window, $http){
-	$scope.start_date = (new Date());
-	$scope.end_date = (new Date());
+	$scope.Date = new Date();
 	
 	$scope.go = function(path){
 		$window.location = path;

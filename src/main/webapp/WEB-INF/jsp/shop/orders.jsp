@@ -28,20 +28,14 @@
 		</nav>
 		
 		<div class="shop-content">
-			<c:choose>
-				<c:when test="${fn:length(orders) == 0}">
-					<h4>Empty Orders</h4>
-				</c:when>
-				
-				<c:otherwise>
-					<div class="bottom-space">
+			<div class="bottom-space">
 						<div class="table-responsive col-lg-6 col-md-6 col-sm-6 float-sm-right float-md-right flot-lg-right">
 							<form action="${path}/order/list.do" method="POST">
 								<table class="table table-borderless">
 									<tr>
-										<td><input type="date" name="start" ng-model="start_date"/></td>
+										<td><input type="date" name="start" ng-init="params.datetime = Date" ng-model="start_date"/></td>
 										<td>~</td>
-										<td><input type="date" name="end" ng-model="end_date"/></td>
+										<td><input type="date" name="end" ng-init="params.datetime = Date" ng-model="end_date"/></td>
 										<td><input type="submit" class="btn btn-default btn-primary" value="search"/></td>
 									</tr>
 								</table>
@@ -49,7 +43,13 @@
 						
 						</div>
 					</div>
-					
+
+			<c:choose>
+				<c:when test="${fn:length(orders) == 0}">
+					<h4>Empty Orders</h4>
+				</c:when>
+				
+				<c:otherwise>					
 					<div class="table-responsive">
 						<table class="table table-light">
 							<tr>
