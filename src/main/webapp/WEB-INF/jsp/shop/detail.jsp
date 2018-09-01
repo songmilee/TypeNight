@@ -26,44 +26,53 @@
 	  </div>
 	</nav>
 	
-	<div class="contents">
-		<table>
-			<tr>
-				<td>
-					<img src="${path}/img/${item.img}" width="500px" height="500px">
-				</td>
-			</tr>
-			<tr>
-				<td>Item Name</td>
-			</tr>
-			<tr>
-				<td>${item.name }</td>
-			</tr>
-			<tr>
-				<td>Item Price</td>
-				<td>${item.price }</td>
-			</tr>	
-			<tr>
-				<td>Product Description</td>
-			</tr>
-			<tr>
-				<td>${item.desc }</td>
-			</tr>
-			<tr>
-				<td>
-					<form action="${path}/cart/insert.do" method="POST">
-						<input type="hidden" name="iid" id="iid" value=${item.iid }>
-						<select name="amount">
-							<c:forEach begin="1" end="10" var="row">
-								<option value="${row }">${row}</option>
-							</c:forEach>
-						</select>
-						
-						<input type="submit" class="btn btn-default btn-primary" value="add to cart">
-					</form>
-				</td>
-			</tr>
-		</table>
+	<div class="shop-contents">
+		<div class="table-responsive">
+			<table class="table table-borderless">
+				<tr>
+					<td>
+						<img src="${path}/img/${item.img}" width="500px" height="500px">
+					</td>
+					
+					<td>
+						<div class="table-responsive">
+							<table class="table table-borderless" style="hegith:100%;">
+								<tr>
+									<td>Item Name</td>
+								</tr>
+								<tr>
+									<td>${item.name }</td>
+								</tr>
+								<tr>
+									<td>Item Price</td>
+									<td>${item.price }</td>
+								</tr>	
+								<tr>
+									<td>Product Description</td>
+								</tr>
+								<tr>
+									<td>${item.desc }</td>
+								</tr>
+								<tr>
+									<td>
+										<form action="${path}/cart/insert.do" method="POST">
+											<input type="hidden" name="iid" id="iid" value=${item.iid }>
+											<select name="amount">
+												<c:forEach begin="1" end="10" var="row">
+													<option value="${row }">${row}</option>
+												</c:forEach>
+											</select>
+											
+											<input type="submit" class="btn btn-default btn-primary max-width" value="add to cart">
+										</form>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	
 <%@ include file="../partial/js.html" %>

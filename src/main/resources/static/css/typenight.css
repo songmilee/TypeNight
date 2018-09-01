@@ -8,9 +8,61 @@ body{
 	width : 100vw;
 }
 
-.content{
-	padding : 10%;
+talbe{
+	margin : 0 auto;
+	width : 50%;
+}
+
+.init-box{
+	height : 100vh;
+	
+	margin-top : 5%;
+	margin-left : 5%;
+	margin-right : 5%;
+	
+	padding-top : 3%;
+	padding-left : 3%;
+}
+
+#login-box{
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80%;
+  width: 100%;
+}
+
+#login-box-align{
+  padding-top: 15%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+#login-box-content{
+	display: block;
+	  padding: 20px;
+	  border: 1px solid #D3D3D3;
+	  border-radius: 20px;
+}
+
+.account-content{
+	margin-top : 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.shop-content{
+	margin-top : 5%;
+	padding-left : 5%;
+	padding-right : 5%;
+}
+
+.max-width{
+	width : 100%;
+}
+.right-space-15{
+	padding-rigth : 15px;
 }
 .bottom-space{
-	padding-bottom : 15px;
+	padding-bottom : 30px;
 }

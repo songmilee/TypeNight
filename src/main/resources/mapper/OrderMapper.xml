@@ -8,15 +8,16 @@
 	insert into orders values(null, #{iid}, #{date}, #{amount}, #{uid})
 </insert>
 
-<select id="selectOrder" resultType="hashmap">
+<select id="selectOrder" parameterType="song.type.night.vo.Order" resultType="hashmap">
 	select i.name as name, 
 	i.price as price,
 	sum(o.amount) as amount, 
 	o.date as date,
 	i.img as img
-	from orders o, item i where o.uid=#{uid} and o.iid=i.iid
+	from orders o, item i 
+	where o.uid=#{uid} and o.iid=i.iid and o.date >= #{start} and #{end} >= o.date
 	group by date, i.iid
-	order by date
+	order by date desc
 </select>
 
 </mapper>

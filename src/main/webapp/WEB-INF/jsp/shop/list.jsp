@@ -26,24 +26,20 @@
 	  </div>
 	</nav>
 	
-	<div class="contents">
-		<table>
-			<tr>
-				<th>ID</th>
-				<th>Item Image</th>
-				<th>Item name</th>
-				<th>Price</th>
-			</tr>
-			
+	<div class="shop-content">
+		<div class="row">
 			<c:forEach var="row" items="${items }">
-				<tr>
-					<td>${row.iid }</td>
-					<td><a href="${path }/shop/detail/${row.iid}"><img src="${path}/img/${row.img}" width="300px" height="300px"></a></td>
-					<td><a href="${path }/shop/detail/${row.iid}">${row.name }</a></td>
-					<td><a href="${path }/shop/detail/${row.iid}">$${row.price }</a></td>
-				</tr>
+				<div class="col-lg-4 col-md-4 col-sm-4 bottom-space">
+					<div class="card">
+						<a href="${path }/shop/detail/${row.iid}"><img class="card-img-top" src="${path}/img/${row.img}" width="300px" height="300px"></a>
+						<div class="card-body">
+							<h5 class="card-title"><a href="${path }/shop/detail/${row.iid}">${row.name }</a></h5>
+							<p class="card-text text-right"><a href="${path }/shop/detail/${row.iid}">$${row.price }</a></p>
+						</div>
+					</div>
+				</div>
 			</c:forEach>
-		</table>
+		</div>
 	</div>
 	
 <%@ include file="../partial/js.html" %>

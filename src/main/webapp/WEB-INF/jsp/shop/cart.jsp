@@ -26,46 +26,47 @@
 	  </div>
 	</nav>
 	
-	<div class="contents">
+	<div class="shop-content">
 		<c:choose>
 			<c:when test="${fn:length(cartitem) == 0 }">
 				<h4>Cart is Empty</h4>
 			</c:when>
 			<c:otherwise>
 				<form action="${path}/order/buy.do" method="POST">
-					<table>
-						<tr>
-							<th>no</th>
-							<th></th>
-							<th>Item name</th>
-							<th>Item Unit Price</th>
-							<th>Item Amount</th>
-							<th>Item Price</th>
-							<th>remove</th>
-						</tr>
-						
-						<c:forEach var="row" items="${cartitem }" varStatus="i">
+					<div class="table-responsive">
+						<table class="table table-light">
 							<tr>
-								<td>${i.count }</td>
-								<td><img src="${path}/img/${row.img}" width="300px" height="300px"></td>
-								<td>${row.name }</td>
-								<td>$${row.price }</td>
-								<td>${row.amount }</td>
-								<td>$<fmt:formatNumber value="${row.price * row.amount }" pattern=".00" /></td>
-								<td><a href="${path}/cart/delete.do?iid=${row.iid}">remove</a></td>
+								<th>no</th>
+								<th></th>
+								<th>Item name</th>
+								<th>Item Unit Price</th>
+								<th>Item Amount</th>
+								<th>Item Price</th>
+								<th>remove</th>
 							</tr>
 							
-							<input type="hidden" name="iid" id="iid" value="${row.iid}" />
-							<input type="hidden" name="amount" id="amount" value="${row.amount}"/>
-						</c:forEach>
-						<tr>
-							<td colspan="5" align="right">
-								Total : $${sum }
-							</td>
-						</tr>
-					</table>
-					
-					<button type="submit" class="btn btn-default btn-primary">Buy</button>
+							<c:forEach var="row" items="${cartitem }" varStatus="i">
+								<tr>
+									<td class="align-middle">${i.count }</td>
+									<td class="align-middle"><img src="${path}/img/${row.img}" width="300px" height="300px"></td>
+									<td class="align-middle">${row.name }</td>
+									<td class="align-middle">$${row.price }</td>
+									<td class="align-middle">${row.amount }</td>
+									<td class="align-middle">$<fmt:formatNumber value="${row.price * row.amount }" pattern=".00" /></td>
+									<td class="align-middle"><a href="${path}/cart/delete.do?iid=${row.iid}">remove</a></td>
+								</tr>
+								
+								<input type="hidden" name="iid" id="iid" value="${row.iid}" />
+								<input type="hidden" name="amount" id="amount" value="${row.amount}"/>
+							</c:forEach>
+							<tr>
+								<td colspan="7" align="right">
+									Total : $${sum}
+								</td>
+							</tr>
+						</table>
+					</div>					
+					<button type="submit" class="btn btn-default btn-primary float-sm-right float-md-right flot-lg-right">Buy</button>
 				</form>
 			</c:otherwise>
 		</c:choose>
