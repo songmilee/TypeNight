@@ -16,7 +16,7 @@
 					<tr>
 						<td>
 							<label for="pwd">password</label>
-							<input class="max-width" type="password" name="pwd" id="pwd" ng-value="pwd" required>
+							<input class="max-width" type="password" name="pwd" id="pwd" required>
 						</td>
 					</tr>
 					

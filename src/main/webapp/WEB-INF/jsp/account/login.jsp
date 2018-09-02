@@ -6,15 +6,15 @@
 		<div id="login-box">
 			<div id="login-box-align">
 				<div id="login-box-content">					
-					<form id="frm" class="table-responsive" action="/logincheck.do" method="POST">
+					<form id="frm" action = "/logincheck.do" class="table-responsive" method="POST">
 						<table class="table table-borderless">
 							<tr>
 								<td>ID</td>
-								<td><input class="max-width" type="text" name="id" required></td>
+								<td><input class="max-width" type="text" name="id" id="id" required></td>
 							</tr>
 							<tr>
 								<td>Password</td>
-								<td><input class="max-width" type="password" name="pwd" required></td>
+								<td><input class="max-width" type="password" name="pwd" id="pwd" required></td>
 							</tr>
 							<tr>
 								<td colspan="2">

@@ -10,21 +10,45 @@ app.config(function($locationProvider, $routeProvider){
 app.controller('loginController', function($scope, md5){	
 	
 	$scope.hash = function(){
-		//var pwdHash = md5.createHash($scope.pwd || '');
-		//$scope.pwd = pwdHash;
+		var id = document.getElementById('id').value;
+		var pwd = document.getElementById('pwd');
 		
-		document.getElementById('frm').submit();
-		
+		if(id == "" || pwd.value == ""){
+			alert("Complete the form");
+		} else {
+			var pwdHash = md5.createHash(pwd.value || '');
+			
+			pwd.value = pwdHash;
+			
+			var form = document.getElementById('frm');		
+			form.submit();
+		}			
+	
 	}
 });
 
-app.controller('registerController', function($scope){
+app.controller('registerController', function($scope, md5){
 	$scope.disableBtn = false;
 	
 	$scope.hash = function(){
-		disableBtn = true;
+		$scope.disableBtn = true;
 		
-		//document.getElementById('frm').submit();
+		var name = document.getElementById('name').value;
+		var id = document.getElementById('id').value;
+		var gender = document.getElementsByName('gender');
+		var birth = document.getElementById('birth').value;
+		var pwd = document.getElementById('pwd');
+		
+		if(name == "" || id == "" || birth == "" || pwd.value == "" || (!gender[0].checked && !gender[1].checked)){
+			alert("Complete the form");
+		} else{
+			var pwdHash = md5.createHash(pwd.value || '');
+			
+			pwd.value = pwdHash;
+			
+			var form = document.getElementById('frm');		
+			form.submit();
+		}
 	}
 	
 });

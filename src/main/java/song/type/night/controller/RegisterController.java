@@ -32,14 +32,10 @@ public class RegisterController {
 	public ModelAndView registerMember(@RequestParam("id") String id, @RequestParam("pwd") String pwd, 
 			@RequestParam("name") String name, @RequestParam("gender") int gender, @RequestParam("birth") String birth, ModelAndView mv) throws Exception {
 		
-		//crypto data
-		MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-		messageDigest.update(pwd.getBytes());
-		
 		//create Member
 		Member nb = new Member();
 		nb.setId(id);
-		nb.setPwd(new String(messageDigest.digest()));
+		nb.setPwd(pwd);
 		nb.setName(name);
 		nb.setGender(gender);
 		nb.setBirth(birth);
