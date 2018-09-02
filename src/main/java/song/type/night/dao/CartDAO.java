@@ -12,5 +12,5 @@ public interface CartDAO {
 	public List<Cart> selectCart(int uid);
 	public float sumPrice(int uid);
 	public List<Map<String, Object>> selectCartItemList(int uid);
-	public void deleteCart(Cart c);
+	public int deleteCart(Cart c);
 }

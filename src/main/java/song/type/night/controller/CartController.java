@@ -71,9 +71,12 @@ public class CartController  {
 		c.setUid(Integer.parseInt(uid));
 		c.setIid(Integer.parseInt(iid));
 		
-		service.deleteCart(c);
+		int result = service.deleteCart(c);
 		
-		map.put("result", Variable.RESULT_OK); 
+		if(result > 0)
+			map.put("result", Variable.RESULT_OK); 
+		else
+			map.put("result", Variable.RESULT_FAIL);
 		
 		return map;
 	}

@@ -40,8 +40,8 @@ public class CartService {
 	}
 	
 	//장바구니에서 물건 삭제
-	public void deleteCart(Cart c) {
-		dao.deleteCart(c);
+	public int deleteCart(Cart c) {
+		return dao.deleteCart(c);
 	}
 
 }

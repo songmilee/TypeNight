@@ -53,9 +53,9 @@ public class CartDAOImp implements CartDAO {
 	}
 
 	@Override
-	public void deleteCart(Cart c) {
+	public int deleteCart(Cart c) {
 		// TODO Auto-generated method stub
-		db.delete(Variable.CART+".deleteCartItem", c);		
+		return db.delete(Variable.CART+".deleteCartItem", c);		
 	}
 
 }

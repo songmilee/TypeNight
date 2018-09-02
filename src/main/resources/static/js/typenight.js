@@ -70,7 +70,11 @@ app.controller('cartController', function($scope, $http, $window){
 			method : "delete",
 			url : "/cart?iid="+id,
 		}).then(function success(res){
-			$window.location.reload();
+			if(res.data.result == "1"){
+				$window.location.reload();
+			}else{
+				alert("Sorry, Cannot delete");
+			}
 		}), function fail(res){
 			alert("Sorry, Internal Error");
 		}
