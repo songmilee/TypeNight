@@ -23,7 +23,7 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<button class="btn btn-default btn-primary max-width" onclick="location.href='/register/main.do'">Register</button>
+									<button class="btn btn-default btn-primary max-width" onclick="location.href='/register'">Register</button>
 								</td>
 							</tr>
 						</table>
