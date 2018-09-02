@@ -13,13 +13,13 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import song.type.night.service.OrderService;
 import song.type.night.vo.Order;
 
-@RequestMapping(value="/order/*")
 @Controller
 public class OrderController {
 	@Autowired
@@ -41,7 +41,7 @@ public class OrderController {
 	    binder.registerCustomEditor(Date.class, dateEditor);
 	}
 	
-	@RequestMapping(value="buy.do")
+	@RequestMapping(value="/order", method=RequestMethod.POST)
 	public String buyItems(@CookieValue(value="uid")String uid, int[] iid, int[] amount) {		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = new Date();
@@ -56,10 +56,10 @@ public class OrderController {
 			service.insertOrder(o);
 		}
 		
-		return "redirect:/shop/list.do";
+		return "redirect:/shop";
 	}
 	
-	@RequestMapping(value="list.do")
+	@RequestMapping(value="/order", method=RequestMethod.GET)
 	public ModelAndView listOrders(ModelAndView mv, @CookieValue("uid") String uid, 
 			@RequestParam(value="start", defaultValue="today") Date  start, 
 			@RequestParam(value="end", defaultValue="today") Date  end) {
@@ -67,6 +67,8 @@ public class OrderController {
 		mv.setViewName("/shop/orders");
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		if(start == null) start = new Date();
+		if(end == null) end = new Date();
 		
 		Order o = new Order();
 		o.setUid(Integer.parseInt(uid));

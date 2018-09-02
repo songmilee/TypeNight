@@ -5,18 +5,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import song.type.night.service.ItemService;
 
 @Controller
-@RequestMapping(value="/shop/*")
 public class ShopController {
 	@Autowired
 	private ItemService service;
 	
 	//상품 전체 목록
-	@RequestMapping(value="list.do")
+	@RequestMapping(value="/shop", method=RequestMethod.GET)
 	public ModelAndView ListItem(@CookieValue(value="uid") String uid, ModelAndView mv) {
 		mv.setViewName("/shop/list");
 
@@ -27,7 +27,7 @@ public class ShopController {
 	}
 	
 	//상품 상세
-	@RequestMapping(value="/detail/{iid}")
+	@RequestMapping(value="/shop/{iid}", method = RequestMethod.GET)
 	public ModelAndView ItemDetail(@PathVariable("iid") int iid,@CookieValue(value="uid") String uid, ModelAndView mv) {
 		mv.setViewName("/shop/detail");
 		mv.addObject("item", service.getItem(iid));

@@ -1,6 +1,7 @@
 var app = angular.module('tn', ['ngRoute', 'angular-md5']);
 
-app.config(function($locationProvider, $routeProvider){
+app.config(function($locationProvider, $routeProvider, $qProvider){
+	$qProvider.errorOnUnhandledRejections(false);
 	$locationProvider.html5Mode({
 		enabled : true,
 		requireBase : false
@@ -53,22 +54,25 @@ app.controller('registerController', function($scope, md5){
 	
 });
 
-app.controller('orderController', function($scope, $window, $http){
-	
+app.controller('orderController', function($scope, $window){
 	$scope.go = function(path){
 		$window.location = path;
 	}
 
 });
 
-function DateFormat(date){
-	var d = new Date(date),
-	month = (d.getMonth() + 1),
-	day = d.getDate(),
-	year = d.getFullYear();
-	
-	if(month < 10) month = "0"+month;
-	if(day < 10) day = "0" + day;
-	
-	return year+"-"+month+"-"+day;
-}
+app.controller('cartController', function($scope, $http, $window){
+	$scope.go = function(path){
+		$window.location = path;
+	}
+	$scope.deleteCart = function(id){
+		$http({
+			method : "delete",
+			url : "/cart?iid="+id,
+		}).then(function success(res){
+			$window.location.reload();
+		}), function fail(res){
+			alert("Sorry, Internal Error");
+		}
+	}
+});

@@ -4,7 +4,7 @@
 <body ng-app="tn">
 	<div class="account-content" ng-controller="registerController">
 		<div class="table-responsive">
-			<form id="frm" action="/register/regdata.do"  method="POST">
+			<form id="frm" action="/register"  method="POST">
 				<table class="table table-borderless">
 					<tr>
 						<td>

@@ -18,17 +18,16 @@ import song.type.night.service.MemberService;
 import song.type.night.vo.Member;
 
 @Controller
-@RequestMapping(value="register/*")
 public class RegisterController {
 	@Autowired
 	private MemberService service;
 
-	@RequestMapping(value="main.do")
+	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public String registerPage() {
 		return "/account/register";
 	}
 	
-	@RequestMapping(value="regdata.do")
+	@RequestMapping(value="/register",  method=RequestMethod.POST)
 	public ModelAndView registerMember(@RequestParam("id") String id, @RequestParam("pwd") String pwd, 
 			@RequestParam("name") String name, @RequestParam("gender") int gender, @RequestParam("birth") String birth, ModelAndView mv) throws Exception {
 		

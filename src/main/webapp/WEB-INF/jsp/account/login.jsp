@@ -6,7 +6,7 @@
 		<div id="login-box">
 			<div id="login-box-align">
 				<div id="login-box-content">					
-					<form id="frm" action = "/logincheck.do" class="table-responsive" method="POST">
+					<form id="frm" action = "/" class="table-responsive" method="POST">
 						<table class="table table-borderless">
 							<tr>
 								<td>ID</td>

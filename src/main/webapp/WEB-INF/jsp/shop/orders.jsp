@@ -4,7 +4,7 @@
 <body ng-app="tn">
 	<div  ng-controller="orderController">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <a class="navbar-brand" href="#" ng-click="go('${path}/shop/list.do')">ixShop</a>
+		  <a class="navbar-brand" href="#" ng-click="go('${path}/shop')">ixShop</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
@@ -12,13 +12,13 @@
 		  <div class="collapse navbar-collapse" id="navbarNav">
 		    <ul class="navbar-nav ml-auto">
 		      <li class="nav-item">
-		        <a class="nav-link" href="#" ng-click="go('${path}/shop/list.do')">Items <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="#" ng-click="go('${path}/shop')">Items <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#" ng-click="go('${path}/cart/list.do')">Cart</a>
+		        <a class="nav-link" href="#" ng-click="go('${path}/cart')">Cart</a>
 		      </li>
 		      <li class="nav-item active">
-		      	<a class="nav-link" href="#" ng-click="go('${path}/order/list.do')">Orders</a>
+		      	<a class="nav-link" href="#" ng-click="go('${path}/order')">Orders</a>
 		      </li>
 		      <li class="nav-item">
 		      	<a class="nav-link" href="#" ng-click="go('${path}/logout.do')">Log out</a>
@@ -30,7 +30,7 @@
 		<div class="shop-content">
 			<div class="bottom-space">
 						<div class="table-responsive col-lg-6 col-md-6 col-sm-6 float-sm-right float-md-right flot-lg-right">
-							<form action="${path}/order/list.do" method="POST">
+							<form action="${path}/order">
 								<table class="table table-borderless">
 									<tr>
 										<td><input type="date" name="start" /></td>
