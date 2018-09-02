@@ -1,4 +1,4 @@
-var app = angular.module('tn', ['ngRoute']);
+var app = angular.module('tn', ['ngRoute', 'angular-md5']);
 
 app.config(function($locationProvider, $routeProvider){
 	$locationProvider.html5Mode({
@@ -7,8 +7,29 @@ app.config(function($locationProvider, $routeProvider){
 	});
 });
 
+app.controller('loginController', function($scope, md5){	
+	
+	$scope.hash = function(){
+		//var pwdHash = md5.createHash($scope.pwd || '');
+		//$scope.pwd = pwdHash;
+		
+		document.getElementById('frm').submit();
+		
+	}
+});
+
+app.controller('registerController', function($scope){
+	$scope.disableBtn = false;
+	
+	$scope.hash = function(){
+		disableBtn = true;
+		
+		//document.getElementById('frm').submit();
+	}
+	
+});
+
 app.controller('orderController', function($scope, $window, $http){
-	$scope.Date = new Date();
 	
 	$scope.go = function(path){
 		$window.location = path;

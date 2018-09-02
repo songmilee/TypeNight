@@ -1,24 +1,24 @@
 <!doctype html>
 <html>
 <%@ include file="../partial/header.html" %>
-<body>
-	<div class="account-content">
+<body ng-app="tn">
+	<div class="account-content" ng-controller="loginController">
 		<div id="login-box">
 			<div id="login-box-align">
-				<div id="login-box-content">
-					<form class="table-responsive" action="/logincheck.do" method="POST">
+				<div id="login-box-content">					
+					<form id="frm" class="table-responsive" action="/logincheck.do" method="POST">
 						<table class="table table-borderless">
 							<tr>
 								<td>ID</td>
-								<td><input class="max-width" type="text" name="id" id="id" required></td>
+								<td><input class="max-width" type="text" name="id" required></td>
 							</tr>
 							<tr>
 								<td>Password</td>
-								<td><input class="max-width" type="password" name="pwd" id="pwd" required></td>
+								<td><input class="max-width" type="password" name="pwd" required></td>
 							</tr>
 							<tr>
 								<td colspan="2">
-									<button type="submit" class="btn btn-default btn-primary max-width">Login</button>
+									<button type="button" ng-click="hash()" class="btn btn-default btn-primary max-width">Login</button>
 								</td>
 							</tr>
 							<tr>

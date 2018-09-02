@@ -4,6 +4,8 @@ public class Variable {
 	public static final int RESULT_OK = 1;
 	public static final int RESULT_FAIL = -1;
 	
+	public static final int REG_DATA_ALREADY = 2;
+	
 	public static final int LOGIN_SUCCESS = 1000;
 	public static final int LOGIN_FAIL = 2000;
 	public static final int LOGOUT = 3000;

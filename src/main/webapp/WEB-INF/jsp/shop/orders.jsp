@@ -11,13 +11,13 @@
 		  
 		  <div class="collapse navbar-collapse" id="navbarNav">
 		    <ul class="navbar-nav ml-auto">
-		      <li class="nav-item active">
+		      <li class="nav-item">
 		        <a class="nav-link" href="#" ng-click="go('${path}/shop/list.do')">Items <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#" ng-click="go('${path}/cart/list.do')">Cart</a>
 		      </li>
-		      <li class="nav-item">
+		      <li class="nav-item active">
 		      	<a class="nav-link" href="#" ng-click="go('${path}/order/list.do')">Orders</a>
 		      </li>
 		      <li class="nav-item">
@@ -33,9 +33,9 @@
 							<form action="${path}/order/list.do" method="POST">
 								<table class="table table-borderless">
 									<tr>
-										<td><input type="date" name="start" ng-init="params.datetime = Date" ng-model="start_date"/></td>
+										<td><input type="date" name="start" /></td>
 										<td>~</td>
-										<td><input type="date" name="end" ng-init="params.datetime = Date" ng-model="end_date"/></td>
+										<td><input type="date" name="end"/></td>
 										<td><input type="submit" class="btn btn-default btn-primary" value="search"/></td>
 									</tr>
 								</table>

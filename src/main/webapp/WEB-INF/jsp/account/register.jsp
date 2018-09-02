@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
 <%@include file="../partial/header.html" %>
-<body>
-	<div class="account-content">
+<body ng-app="tn">
+	<div class="account-content" ng-controller="registerController">
 		<div class="table-responsive">
-			<form action="/register/regdata.do"  method="POST">
+			<form id="frm" action="/register/regdata.do"  method="POST">
 				<table class="table table-borderless">
 					<tr>
 						<td>
@@ -16,7 +16,7 @@
 					<tr>
 						<td>
 							<label for="pwd">password</label>
-							<input class="max-width" type="password" name="pwd" id="pwd" required>
+							<input class="max-width" type="password" name="pwd" id="pwd" ng-value="pwd" required>
 						</td>
 					</tr>
 					
@@ -46,7 +46,7 @@
 					
 					<tr>
 						<td>
-							<button type="submit" class="btn btn-default btn-primary max-width">Submit</button>
+							<button ng-click="hash()" ng-init="disableBtn=false" class="btn btn-default btn-primary max-width">Submit</button>
 						</td>
 					</tr>
 					
@@ -55,6 +55,9 @@
 			
 			<c:if test="${msg=='-1' }">
 				<script>alert("Fail to Register");</script>
+			</c:if>
+			<c:if test="${msg=='2' }">
+				<script>alert("Already registered id");</script>
 			</c:if>
 		</div>
 	</div>	

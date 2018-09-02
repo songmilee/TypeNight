@@ -1,5 +1,6 @@
 package song.type.night.controller;
 
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,22 +32,35 @@ public class RegisterController {
 	public ModelAndView registerMember(@RequestParam("id") String id, @RequestParam("pwd") String pwd, 
 			@RequestParam("name") String name, @RequestParam("gender") int gender, @RequestParam("birth") String birth, ModelAndView mv) throws Exception {
 		
+		//crypto data
+		MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+		messageDigest.update(pwd.getBytes());
+		
 		//create Member
 		Member nb = new Member();
 		nb.setId(id);
-		nb.setPwd(pwd);
+		nb.setPwd(new String(messageDigest.digest()));
 		nb.setName(name);
 		nb.setGender(gender);
 		nb.setBirth(birth);
 		
-		//register Member
-		boolean result = service.registerMember(nb);
+		//check Member
+		int check = service.isMember(nb);
 		
-		if(result) {
-			mv.setViewName("redirect:/");
-		} else {
+		//data exist
+		if(check != -1) {
 			mv.setViewName("/account/register");
-			mv.addObject("msg", String.valueOf(Variable.RESULT_FAIL));
+			mv.addObject("msg", String.valueOf(Variable.REG_DATA_ALREADY));
+		} else {
+			//register Member
+			boolean result = service.registerMember(nb);
+			
+			if(result) {
+				mv.setViewName("redirect:/");
+			} else {
+				mv.setViewName("/account/register");
+				mv.addObject("msg", String.valueOf(Variable.RESULT_FAIL));
+			}			
 		}
 		
 		return mv;

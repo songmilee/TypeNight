@@ -1,5 +1,6 @@
 package song.type.night.controller;
 
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,10 +36,16 @@ public class LoginController{
 	@RequestMapping(value="/logincheck.do")
 	public ModelAndView Login(@RequestParam("id") String id, @RequestParam("pwd") String pwd, 
 			HttpServletResponse rep, ModelAndView mv) throws Exception {
+		//crypto data
+		MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+		messageDigest.update(pwd.getBytes());
+		
 		//set Member
 		Member m = new Member();
 		m.setId(id);
-		m.setPwd(pwd);
+		m.setPwd(new String(messageDigest.digest()));
+		
+		System.out.println("pwd " +pwd);
 		
 		//query the member
 		int result = service.isMember(m);

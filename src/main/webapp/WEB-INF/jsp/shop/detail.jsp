@@ -26,7 +26,7 @@
 	  </div>
 	</nav>
 	
-	<div class="shop-contents">
+	<div class="shop-content">
 		<div class="table-responsive">
 			<table class="table table-borderless">
 				<tr>
@@ -36,7 +36,7 @@
 					
 					<td>
 						<div class="table-responsive">
-							<table class="table table-borderless" style="hegith:100%;">
+							<table class="table table-borderless">
 								<tr>
 									<td>Item Name</td>
 								</tr>
@@ -57,13 +57,17 @@
 									<td>
 										<form action="${path}/cart/insert.do" method="POST">
 											<input type="hidden" name="iid" id="iid" value=${item.iid }>
-											<select name="amount">
-												<c:forEach begin="1" end="10" var="row">
-													<option value="${row }">${row}</option>
-												</c:forEach>
-											</select>
-											
-											<input type="submit" class="btn btn-default btn-primary max-width" value="add to cart">
+											<div class="bottom-space">
+												<select name="amount">
+													<c:forEach begin="1" end="10" var="row">
+														<option value="${row }">${row}</option>
+													</c:forEach>
+												</select>
+											</div>
+												
+											<div class="row bottom-space">										
+												<input type="submit" class="btn btn-default btn-primary max-width" value="add to cart">
+											</div>
 										</form>
 									</td>
 								</tr>
